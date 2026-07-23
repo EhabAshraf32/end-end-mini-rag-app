@@ -51,7 +51,7 @@ async def upload_data(request: Request, project_id: str, file: UploadFile,
         orig_file_name=file.filename,
         project_id=project_id
     )
-
+    print(f"file path is {file_path}")
     try:
         async with aiofiles.open(file_path, "wb") as f:
             while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
