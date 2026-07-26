@@ -21,6 +21,16 @@ class DataController(BaseController):
 
         return True, ResponseSignal.FILE_VALIDATED_SUCCESS.value
 
+    def get_clean_file_name(self, orig_file_name: str):
+
+        # remove any special characters, except underscore and .
+        cleaned_file_name = re.sub(r'[^\w.]', '', orig_file_name.strip())
+
+        # replace spaces with underscore
+        cleaned_file_name = cleaned_file_name.replace(" ", "_")
+
+        return cleaned_file_name
+
     def generate_unique_filepath(self, orig_file_name: str, project_id: str):
         random_key = self.generate_random_string()
         project_path = ProjectController().get_project_path(project_id=project_id)
@@ -43,14 +53,6 @@ class DataController(BaseController):
 
         return new_file_path, random_key + "_" + cleaned_file_name
 
-    def get_clean_file_name(self, orig_file_name: str):
 
-        # remove any special characters, except underscore and .
-        cleaned_file_name = re.sub(r'[^\w.]', '', orig_file_name.strip())
-
-        # replace spaces with underscore
-        cleaned_file_name = cleaned_file_name.replace(" ", "_")
-
-        return cleaned_file_name
 
 

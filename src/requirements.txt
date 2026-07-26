@@ -7,3 +7,5 @@ aiofiles
 langchain
 PyMuPDF
 motor
+openai
+cohere
