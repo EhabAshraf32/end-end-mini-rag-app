@@ -1,3 +1,4 @@
+from models.db_schemes.data_chunk import RetrievedDocument
 from qdrant_client import models, QdrantClient
 from ..VectorDBInterface import VectorDBInterface
 from ..VectorDBEnums import DistanceMethodEnums
@@ -196,10 +197,19 @@ class QdrantDBProvider(VectorDBInterface):
         
     def search_by_vector(self, collection_name: str, vector: list, limit: int = 5):
 
-        response= self.client.query_points(
+        result = self.client.query_points(
             collection_name=collection_name,
             query=vector,
             limit=limit
         )
         
-        return response.points
+        if not result.points:
+            return None
+            
+        return [
+            RetrievedDocument(**{
+                "score": point.score,
+                "text": point.payload["text"],
+            }) 
+            for point in result.points
+        ]
