@@ -146,8 +146,9 @@ All routes are mounted under `/api/v1` and scoped to a `project_id` path paramet
 
 ## 🛠️ Tech stack
 
-**Backend:** FastAPI · Motor (async MongoDB) · Qdrant · LangChain (text splitting) · PyMuPDF · OpenAI / Cohere SDKs
+**Backend:** FastAPI · Pydantic · Motor (async MongoDB) · Dependency Injection · Factory Design Pattern · LangChain · Hugging Face · Qwen2.5-1.5B-Instruct · Qdrant · MongoDB · PyMuPDF · OpenAI / Cohere SDKs · Prompt Engineering · Conversation Memory · Postman
 **Frontend:** Streamlit · Requests
+**DevOps:** Docker
 
 ## 📄 License
 
@@ -156,4 +157,4 @@ See [LICENSE.txt](LICENSE.txt).
 ## 👤 Author
 
 **Ehab Ashraf** — AI/ML Engineer (NLP, RAG, Agentic AI)
-[GitHub](https://github.com/ehab-ashraf) · [LinkedIn](https://linkedin.com/in/ehab-ashraf)
+[GitHub](https://github.com/EhabAshraf32) · [LinkedIn](www.linkedin.com/in/ehab-ashraf-bba739176)
